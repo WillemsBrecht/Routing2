@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using MyClasses;
 
 namespace Routing2.Controllers {
+    [Route("")]
     [Route("[controller]")]
     public class BandController : Controller {
         [Route("[action]")]
@@ -14,8 +15,8 @@ namespace Routing2.Controllers {
             return View();
         }
 
-        [Route("[action]/[controller]/{bandname:string}/{year:int}")]
-        [Route("[action][controller]/Naam/{bandname:string}/Jaar/{year:int}]")]
+        [Route("[action]/[controller]/{bandname}/{year:int}")]
+        [Route("[action][controller]/Naam/{bandname}/Jaar/{year:int}")]
         public IActionResult Maak(string bandname, int year) {
             ViewBag.Band = new Band { Name = bandname, Year = year };
             return View();
