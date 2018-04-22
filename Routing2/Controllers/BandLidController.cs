@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using MyClasses;
 
 namespace Routing2.Controllers {
-    [Route("")]
+
     [Route("[controller]")]
     public class BandLidController : Controller {
 
@@ -16,8 +16,8 @@ namespace Routing2.Controllers {
             return View();
         }
 
-        //[Route("[action]/[controller]/{name}/{age:int}/{geslacht:GenderOptions}/{bandname}")]
         [Route("[action]/[controller]/{name}/{age:int}/{geslacht:GenderOptions}/{bandname}")]
+        [Route("[action][controller]/Naam/{name}/Jaar/{age:int}/Geslacht/{geslacht:GenderOptions}/Band/{bandname}")]
         public IActionResult Maak(string name, int age, GenderOptions geslacht, string bandname) {
             ViewBag.Bandmember = new BandMember { Name = name, Age = age, Gender = geslacht };
             ViewBag.Band = bandname;
